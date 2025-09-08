@@ -1,0 +1,18 @@
+---
+- name: give permission
+  hosts: localhost
+  tasks:
+   - name: give permission to file.txt
+     ansible.builtin.file:
+      path: /root/data_dir/file.txt
+      state: touch
+      mode: u=rwx,g=rx,o=rx
+      
+- name: remove file
+  hosts: localhost
+  tasks:
+   - name: give permission to file.txt
+     ansible.builtin.file:
+      path: /root/data_dir/file.txt
+      state: absent
+      mode: u=rwx,g=rx,o=rx      

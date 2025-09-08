@@ -1,0 +1,9 @@
+---
+- name : create directory
+  hosts : localhost
+  tasks :
+    - name : create directory named "data_dir"
+      ansible.builtin.file:
+      path: /root/data_dir
+      state: directory      
+      
