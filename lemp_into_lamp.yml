@@ -1,20 +1,20 @@
 ---
- - name: Installation of lemp using variable
+ - name: Installation of lamp using variable
    hosts: localhost
    become: yes
    vars:
-     web_pkg: nginx
+     web_pkg: httpd
      db_pkg: mariadb105-server
      php_pkg:
         - php
         - php-fpm
-   web_service: nginx
-   db_service: mariadb
-   php_service: php-fpm
-   php_file_path: /usr/share/nginx/html/index.php
+     web_service: httpd
+     db_service: mariadb
+     php_service: php-fpm
+     php_file_path: /var/www/html/index.php
 
    tasks:
-    - name: Install Lemp on nginx
+    - name: Install Lamp on nginx
       ansible.builtin.dnf:
        name: "{{web_pkg}}"
        state: present
